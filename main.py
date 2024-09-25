@@ -1,5 +1,7 @@
 import requests
 
+__name__="__UniPort__"
+
 # Amino acid table to display
 amino_acid_table = {
     'A': 'Alanine', 'C': 'Cysteine', 'D': 'Aspartic Acid', 'E': 'Glutamic Acid',
@@ -19,7 +21,7 @@ def display_amino_acid_table():
     print("-" * 35)
 
 # Main function to display the table and take user input
-if __name__ == "__main__":
+if __name__ == "__UniPort__":
     # Display the amino acid table before user input
     display_amino_acid_table()
 
@@ -100,7 +102,7 @@ def search_uniprot_by_sequence(sequence):
         print("No matching proteins found in UniProt for the given sequence.")
 
 # Example usage
-if __name__ == "__main__":
+if __name__ == "__UniPort__":
     sequence = input("Enter the amino acid sequence: ").strip()
     
     # Check molecular weight and codons
