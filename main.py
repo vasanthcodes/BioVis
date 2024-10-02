@@ -1,7 +1,5 @@
 import requests
 
-__name__="__UniPort__"
-
 # Amino acid table to display
 amino_acid_table = {
     'A': 'Alanine', 'C': 'Cysteine', 'D': 'Aspartic Acid', 'E': 'Glutamic Acid',
@@ -20,11 +18,17 @@ def display_amino_acid_table():
         print(f"{code:<15}{name:<20}")
     print("-" * 35)
 
-# Main function to display the table and take user input
-if __name__ == "__UniPort__":
-    # Display the amino acid table before user input
-    display_amino_acid_table()
+# Display the amino acid table before user input
+display_amino_acid_table()
+sequence = input("Enter the amino acid sequence: ").strip()
+    
+# Check molecular weight and codons
+print("Molecular Weight and Codons Calculation:")
+display_molecular_weight_and_codons(add_amino_acid(sequence))
 
+# Search protein in UniProt by sequence
+print("\nSearching for matching proteins in UniProt...")
+search_uniprot_by_sequence(sequence)
 # Dictionary of amino acid molecular weights
 amino_acid_weights = {
     'A': 89.09, 'C': 121.16, 'D': 133.10, 'E': 147.13, 'F': 165.19, 
@@ -100,15 +104,3 @@ def search_uniprot_by_sequence(sequence):
         print(response.text)
     else:
         print("No matching proteins found in UniProt for the given sequence.")
-
-# Example usage
-if __name__ == "__UniPort__":
-    sequence = input("Enter the amino acid sequence: ").strip()
-    
-    # Check molecular weight and codons
-    print("Molecular Weight and Codons Calculation:")
-    display_molecular_weight_and_codons(add_amino_acid(sequence))
-
-    # Search protein in UniProt by sequence
-    print("\nSearching for matching proteins in UniProt...")
-    search_uniprot_by_sequence(sequence)
